@@ -1,6 +1,11 @@
+body {
+    background-color:rgb(205, 249, 235);
+}
+
 .control-boxes {
     display:flex;
 }
+
 
 #div-box-1, #div-box-2, #div-box-3 {
     border-style: solid;
