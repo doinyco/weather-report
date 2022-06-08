@@ -1,0 +1,15 @@
+.control-boxes {
+    display:flex;
+}
+
+#div-box-1, #div-box-2, #div-box-3 {
+    border-style: solid;
+    width: 300px;
+    height: 300px;
+}
+
+.weather-display {
+    border-style: solid;
+    width: 900px;
+    height: 300px;
+}
