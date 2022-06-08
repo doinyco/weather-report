@@ -8,6 +8,8 @@ body {
 
 
 #div-box-1, #div-box-2, #div-box-3 {
+    display:flex;
+    flex-direction: column;
     border-style: solid;
     width: 300px;
     height: 300px;
