@@ -1,57 +1,92 @@
 body {
-    background-color: antiquewhite;
+    background-color: rgb(167, 240, 232);
 }
+
+h1 {
+    text-align: center;
+    /* font-size: 35px; */
+}
+
+h2 {
+    font-size: 20px;
+    margin-left: 20px;
+}
+
 
 .container {
     display: flex;
     flex-direction: row;
-    text-align: center;
+    /* text-align: center; */
     justify-content: center;  
 }
 
+section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 50px; 
+}
+
 #temperature {
-    width: 400px;
-    height: 300px;
-    background-color: aliceblue;
+    width: 300px;
+    height: 200px;
+    background-color: whitesmoke;
     border-radius: 15px;
-    border: black 1px solid;
-    margin-top: 120px;
+    /* border: black 1px solid; */
+    margin-top: 150px;
     /* margin-left: 20px; */
-    margin-right: 40px;
+    margin-right: 60px;
 }
 
 #sky {
-    width: 400px;
+    width: 300px;
     /* height: 300px; */
-    background-color: aliceblue;
+    background-color: whitesmoke;
     border-radius: 15px;
-    border: black 1px solid;
-    margin-top: 120px;
+    /* border: black 1px solid; */
+    margin-top: 150px;
     /* margin-left: 20px; */
-    margin-right: 40px;
+    margin-right:60px;
 }
 
 #city {
-    width: 400px;
-    background-color: aliceblue;
+    width: 300px;
+    background-color: whitesmoke;
     border-radius: 15px;
     border-radius: 15px;
-    border: black 1px solid;
-    margin-top: 120px;
+    /* border: black 1px solid; */
+    margin-top: 150px;
     /* margin-left: 20px; */
     margin-right: 40px;
 }
 
 #garden {
     display: flex;
-    flex-direction: row;
-    width: 600px;
+    flex-direction: column; 
+    width: 400px;
     text-align: center;
-    background-color: aliceblue;
+    background-color: whitesmoke;
     border-radius: 15px; 
-    margin-top: 50px;
-    /* margin-left: 500px; */
+    margin-top: 100px;
+    /* margin-left: 625px;  */
     /* margin-right: 500px; */
     height: 300px;
-    border: black 1px solid;
+    /* border: black 1px solid; */
 }
+
+#root {
+    color: #008080;
+    font-size: 35px;
+    margin-left: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    
+}
+
+button {
+    font-size: 9px;
+    margin-left: 30px;
+}
+
+
+
