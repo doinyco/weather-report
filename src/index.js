@@ -6,7 +6,7 @@ let header = 'Weather Report';
 document.getElementById('root').innerText = data;
 document.getElementById('topHeader').innerText = header;
 
-const weatherAPICall= (lat, lon) => {
+const weatherAPICall = (lat, lon) => {
   const WEATHER_API = 'http://127.0.0.1:5000/weather';
 
   axios
@@ -21,9 +21,9 @@ const weatherAPICall= (lat, lon) => {
       // console.log(response.data.current.temp);
       let temp = 1.8 * (response.data.current.temp - 273.15) + 32;
       document.getElementById('root').innerText = Math.round(temp);
-      console.log(weatherCondition);
       changeColor(temp);
       setLandscape(temp);
+
       const rainOptions = ['Thunderstrom', 'Rain', 'Drizzle'];
       // console.log(response);
       let weatherCondition = response.data.current.weather[0].main;
@@ -48,7 +48,7 @@ const weatherAPICall= (lat, lon) => {
       console.log('error in API call');
       console.log(response);
     });
-}
+};
 
 const locationAPICall = (city) => {
   const LOCATION_API = 'http://127.0.0.1:5000/location';
@@ -69,7 +69,7 @@ const locationAPICall = (city) => {
       console.log('error in API call');
       console.log(response);
     });
-} 
+};
 
 const cityname = () => {
   let city = document.getElementById('cityName').value;
@@ -78,7 +78,27 @@ const cityname = () => {
   document.getElementById('topHeader').innerText = headerWithCity;
   locationAPICall(city);
   // const axios = require('axios');
-}
+};
+
+const reset = () => {
+  let data = 55;
+  let header = 'Weather Report';
+
+  document.getElementById('root').innerText = data;
+  document.getElementById('topHeader').innerText = header;
+  changeColor(data);
+  document.getElementById('skydisplay').innerText = ' ';
+  document.getElementById('landscape').innerText = ' ';
+
+  document.getElementById('skydropdown').selectedIndex = 0;
+  document.getElementById('cityName').value = '';
+};
+
+// function(){
+//   $("#ClearItems").click(function(){
+//    $("#myForm")[0].reset();
+//  });
+// });
 
 const changeColor = (data) => {
   if (data <= 49) {
@@ -86,7 +106,7 @@ const changeColor = (data) => {
   } else if (data <= 59) {
     document.getElementById('root').style.color = '#008000';
   } else if (data <= 69) {
-    document.getElementById('root').style.color = '#FFFF00';
+    document.getElementById('root').style.color = '#ECD218';
   } else if (data <= 79) {
     document.getElementById('root').style.color = '#FFA500';
   } else {
@@ -99,14 +119,14 @@ const increment = () => {
   document.getElementById('root').innerText = data;
   changeColor(data);
   setLandscape(data);
-}
+};
 
 const decrement = () => {
   data = data - 1;
   document.getElementById('root').innerText = data;
   changeColor(data);
   setLandscape(data);
-}
+};
 
 // function addingLandscape() {
 //   setLandscape(data);
@@ -125,22 +145,25 @@ const setLandscape = (data) => {
   }
 };
 
-const skyOption = (option) => {
-  // let value = selectOnject.value;
-  // console.log(value);
-  // console.log(typeof(selectOnject));
-  if (isObject(option)) {
-    let option= option.value;
-  }
-  if (option === "sunny") {
-    document.getElementById('skydisplay').innerText = "☁️ ☁️ ☁️ ☀️ ☁️ ☁️";
-  } else if (option === "cloudy") {
-    document.getElementById('skydisplay').innerText = "☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️";
-  } else if (option === "rainy") {
-    document.getElementById('skydisplay').innerText = 	"🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧";
-  } else if (option === "snowy") {
-    document.getElementById('skydisplay').innerText = 	"🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨";
-  }
-}
+const skyOption = (choice) => {
+  // console.log(choice);
+  // console.log(typeof choice);
+  let option;
 
+  if (typeof choice === 'object') {
+    option = choice.value;
+  } else {
+    option = choice;
+  }
 
+  if (option === 'sunny') {
+    document.getElementById('skydisplay').innerText = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+  } else if (option === 'cloudy') {
+    document.getElementById('skydisplay').innerText =
+      '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+  } else if (option === 'rainy') {
+    document.getElementById('skydisplay').innerText = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+  } else if (option === 'snowy') {
+    document.getElementById('skydisplay').innerText = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+  }
+};
