@@ -101,9 +101,17 @@ section {
     
 }
 
-#city > button {
+#cityEnter {
     font-size: 9px;
     margin-left: 10px;
+}
+
+#reset {
+    font-size: 9px;
+    margin-left: 10px;
+    height: 20px;
+    width: 200px;
+    background-color: red;
 }
 
 #skydropdown {
