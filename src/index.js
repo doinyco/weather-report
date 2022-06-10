@@ -6,7 +6,7 @@ let header = 'Weather Report';
 document.getElementById('root').innerText = data;
 document.getElementById('topHeader').innerText = header;
 
-function weatherAPICall(lat, lon) {
+const weatherAPICall= (lat, lon) => {
   const WEATHER_API = 'http://127.0.0.1:5000/weather';
 
   axios
@@ -19,6 +19,11 @@ function weatherAPICall(lat, lon) {
     .then((response) => {
       // console.log(response);
       // console.log(response.data.current.temp);
+      let temp = 1.8 * (response.data.current.temp - 273.15) + 32;
+      document.getElementById('root').innerText = Math.round(temp);
+      console.log(weatherCondition);
+      changeColor(temp);
+      setLandscape(temp);
       const rainOptions = ['Thunderstrom', 'Rain', 'Drizzle'];
       // console.log(response);
       let weatherCondition = response.data.current.weather[0].main;
@@ -32,11 +37,11 @@ function weatherAPICall(lat, lon) {
         skyOption('cloudy');
       }
 
-      let temp = 1.8 * (response.data.current.temp - 273.15) + 32;
-      document.getElementById('root').innerText = Math.round(temp);
-      console.log(weatherCondition);
-      changeColor(temp);
-      setLandscape(temp);
+      // let temp = 1.8 * (response.data.current.temp - 273.15) + 32;
+      // document.getElementById('root').innerText = Math.round(temp);
+      // console.log(weatherCondition);
+      // changeColor(temp);
+      // setLandscape(temp);
       // console.log(temp);
     })
     .catch((response) => {
@@ -45,7 +50,7 @@ function weatherAPICall(lat, lon) {
     });
 }
 
-function locationAPICall(city) {
+const locationAPICall = (city) => {
   const LOCATION_API = 'http://127.0.0.1:5000/location';
   axios
     .get(`${LOCATION_API}`, {
@@ -66,9 +71,9 @@ function locationAPICall(city) {
     });
 } 
 
-function cityname() {
+const cityname = () => {
   let city = document.getElementById('cityName').value;
-  let headerWithCity = `Weather Report for City of ${city}`;
+  let headerWithCity = `Weather Report for City of ✨${city} ✨`;
   console.log(headerWithCity);
   document.getElementById('topHeader').innerText = headerWithCity;
   locationAPICall(city);
@@ -96,7 +101,7 @@ const increment = () => {
   setLandscape(data);
 }
 
-function decrement() {
+const decrement = () => {
   data = data - 1;
   document.getElementById('root').innerText = data;
   changeColor(data);
@@ -120,16 +125,20 @@ const setLandscape = (data) => {
   }
 };
 
-function skyOption(selectOnject) {
-  let value = selectOnject.value;
-  console.log(value);
-  if (value === "sunny") {
+const skyOption = (option) => {
+  // let value = selectOnject.value;
+  // console.log(value);
+  // console.log(typeof(selectOnject));
+  if (isObject(option)) {
+    let option= option.value;
+  }
+  if (option === "sunny") {
     document.getElementById('skydisplay').innerText = "☁️ ☁️ ☁️ ☀️ ☁️ ☁️";
-  } else if (value === "cloudy") {
+  } else if (option === "cloudy") {
     document.getElementById('skydisplay').innerText = "☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️";
-  } else if (value === "rainy") {
+  } else if (option === "rainy") {
     document.getElementById('skydisplay').innerText = 	"🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧";
-  } else if (value === "snowy") {
+  } else if (option === "snowy") {
     document.getElementById('skydisplay').innerText = 	"🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨";
   }
 }
