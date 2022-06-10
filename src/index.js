@@ -12,7 +12,7 @@ function cityname() {
   console.log(headerWithCity);
   document.getElementById('topHeader').innerText = headerWithCity;
 
-  const axios = require('axios');
+//   const axios = require('axios');
   const API = 'http://127.0.0.1:5000/location';
   axios
     .get(`${API}`, {
@@ -27,7 +27,7 @@ function cityname() {
       console.log('error in API call');
       console.log(response);
     });
-}
+} 
 
 const changeColor = (data) => {
   if (data <= 49) {
@@ -43,7 +43,7 @@ const changeColor = (data) => {
   }
 };
 
-function increment() {
+const increment = () => {
   data = data + 1;
   document.getElementById('root').innerText = data;
   changeColor(data);
