@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/styles/index.css" rel="stylesheet"/>
     <title>Weather Report</title>
-    <link href="styles/index.css" rel="stylesheet">
+    <link href="styles/index.css" rel="stylesheet"/>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
 </head>
 <body>
@@ -29,6 +28,13 @@
         </div>
         <div id="sky">
             <h2>Sky</h2>
+            <select id="skydropdown" onchange="skyOption(this)">
+                <option value="">chose sky</option>
+                <option value="sunny">sunny</option>
+                <option value="cloudy">cloudy</option>
+                <option value="rainy">rainy</option>
+                <option value="snowy">snowy</option>
+              </select>
         </div>
         <div id="city">
             <h2>City Name</h2>
@@ -40,7 +46,9 @@
     <section>
         <h4>Weather Garden</h4>
         <div id="garden">
+            <h5 id="skydisplay"></h5>
             <h5 id="landscape"></h5>
+
         </div>
 
     </section>
