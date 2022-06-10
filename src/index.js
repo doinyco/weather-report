@@ -19,8 +19,22 @@ function weatherAPICall(lat, lon) {
     .then((response) => {
       // console.log(response);
       // console.log(response.data.current.temp);
+      const rainOptions = ['Thunderstrom', 'Rain', 'Drizzle'];
+      // console.log(response);
+      let weatherCondition = response.data.current.weather[0].main;
+      if (rainOptions.includes(weatherCondition)) {
+        skyOption('rainy');
+      } else if (weatherCondition === 'Snow') {
+        skyOption('snowy');
+      } else if (weatherCondition === 'Clear') {
+        skyOption('sunny');
+      } else if (weatherCondition === 'Clouds') {
+        skyOption('cloudy');
+      }
+
       let temp = 1.8 * (response.data.current.temp - 273.15) + 32;
       document.getElementById('root').innerText = Math.round(temp);
+      console.log(weatherCondition);
       changeColor(temp);
       setLandscape(temp);
       // console.log(temp);
