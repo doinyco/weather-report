@@ -6,10 +6,13 @@ h1 {
     /* text-align: center; */
     /* font-size: 35px; */
     margin-top: 50px;
-    margin-left: 360px;
+    /* margin-left: 360px; */
     font-family: monospace;
     font-size: 45px;
+    display: flex;
+    justify-content: center;
 }
+
 
 h2 {
     font-size: 22px;
@@ -112,6 +115,7 @@ section {
     height: 20px;
     width: 200px;
     background-color: red;
+    color:white;
 }
 
 #skydropdown {
