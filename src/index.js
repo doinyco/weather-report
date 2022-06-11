@@ -73,7 +73,7 @@ const locationAPICall = (city) => {
 
 const cityname = () => {
   let city = document.getElementById('cityName').value;
-  let headerWithCity = `Weather Report for City of ✨${city} ✨`;
+  let headerWithCity = `Weather Report for City of ✨${city}✨`;
   console.log(headerWithCity);
   document.getElementById('topHeader').innerText = headerWithCity;
   locationAPICall(city);
@@ -119,6 +119,7 @@ const increment = () => {
   document.getElementById('root').innerText = data;
   changeColor(data);
   setLandscape(data);
+  changeGarden(data);
 };
 
 const decrement = () => {
@@ -126,6 +127,7 @@ const decrement = () => {
   document.getElementById('root').innerText = data;
   changeColor(data);
   setLandscape(data);
+  changeGarden(data);
 };
 
 // function addingLandscape() {
@@ -142,6 +144,20 @@ const setLandscape = (data) => {
     document.getElementById('landscape').innerText = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
   } else {
     document.getElementById('landscape').innerText = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
+  }
+};
+
+const changeGarden = (data) => {
+  if (data <= 49) {
+    document.getElementById('garden').style.color = '#008080';
+  } else if (data <= 59) {
+    document.getElementById('garden').style.color = '#008000';
+  } else if (data <= 69) {
+    document.getElementById('garden').style.color = '#ECD218';
+  } else if (data <= 79) {
+    document.getElementById('garden').style.color = '#FFA500';
+  } else {
+    document.getElementById('garden').style.color = '#FF0000';
   }
 };
 
