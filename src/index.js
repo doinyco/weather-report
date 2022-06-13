@@ -130,15 +130,15 @@ const setLandscape = (data) => {
 
 const changeGarden = (data) => {
   if (data <= 49) {
-    document.getElementById('garden').style.backgroundColor = '#008080';
+    document.getElementById('garden').style.backgroundColor = '#73C2FB';
   } else if (data <= 59) {
-    document.getElementById('garden').style.backgroundColor = '#008000';
+    document.getElementById('garden').style.backgroundColor = '#D6CFC7';
   } else if (data <= 69) {
-    document.getElementById('garden').style.backgroundColor = '#ECD218';
+    document.getElementById('garden').style.backgroundColor = '#95C8D8';
   } else if (data <= 79) {
-    document.getElementById('garden').style.backgroundColor = '#FFA500';
+    document.getElementById('garden').style.backgroundColor = '#FADASE';
   } else {
-    document.getElementById('garden').style.backgroundColor = '#FF0000';
+    document.getElementById('garden').style.backgroundColor = '#FEE12B';
   }
 };
 
